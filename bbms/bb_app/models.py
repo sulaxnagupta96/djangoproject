@@ -52,7 +52,7 @@ class camp_schedule(models.Model):
         return str(self.code)
 
 class donor_health(models.Model):
-    donor_id=models.ForeignKey(donor,primary_key=True, on_delete=models.CASCADE)
+    donor_id=models.OneToOneField(donor,on_delete=models.CASCADE)
     body_weight=models.PositiveIntegerField()
     temprature=models.PositiveIntegerField()
     pulse=models.PositiveIntegerField()

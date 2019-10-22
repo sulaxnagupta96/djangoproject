@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>welcome</h1>
-</body>
-</html>
+{% extends "bb_app/base.html" %}
+{% block body_block %}
+
+<div class="jumbotron">
+     <h1>Please Login</h1>
+        <form action="{% url 'bb_app:user_login' %}" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <p><label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter username"></p>
+            <p><label for="password">Password:</label>
+            <input type="password" id="password" name="password"></p>
+            <input type="submit" class="btn btn-primary" value="Login">
+        </form>
+
+</div>
+{% endblock %}
